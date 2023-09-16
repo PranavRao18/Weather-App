@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.hide{
+    display: none;
+}
+
+body{
+    background-color: rgb(150, 150, 150);
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.761);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+input{
+    padding: 1rem;
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: white;
+    background-color: transparent;
+    border-radius: 7px;
+    border: none;
+    margin: 0 1rem;
+}
+
+input::placeholder{
+    color: rgb(191, 191, 191);
+    font-size: 24px;
+    font-weight: 500;
+}
