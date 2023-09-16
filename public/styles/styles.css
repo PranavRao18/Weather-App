@@ -76,6 +76,7 @@ input::placeholder{
     text-align: center;
     font-size: 20px;
     font-weight: 500;
+    text-transform: capitalize;
 }
 
 #restemperature{
@@ -93,7 +94,7 @@ input::placeholder{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2rem 2.8rem;
+    margin: 2rem 2rem;
 }
 
 .humidity .hum1{
@@ -101,10 +102,21 @@ input::placeholder{
 }
 
 .humidity .humper{
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 600;
     padding-bottom: 0;
     margin-bottom: 0;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+}
+
+span{
+    position: absolute;
+    margin-left: 4px;
+    font-size: 2rem;
 }
 
 .hide{

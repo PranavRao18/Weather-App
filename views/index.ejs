@@ -11,46 +11,68 @@
 </head>
 <body>
     <div class="container">
+        <% if (locals.error) { %>
+        <p> <%= error %> </p>
+        <% } %>
         <div class="bar">
-            <i class="fa-solid fa-location-dot fa-2x" style="color: #ffffff;"></i>
-            <input type="text" placeholder="Enter location">
-            <i class="fa-solid fa-magnifying-glass fa-2x" style="color: #ffffff;"></i>
+            <form method="post" action="/search">
+                <i class="fa-solid fa-location-dot fa-2x" style="color: #ffffff;"></i>
+                <input type="text" placeholder="Enter location" name="inp">
+                <button>
+                    <i class="fa-solid fa-magnifying-glass fa-2x" style="color: #ffffff;"></i>
+                </button>
+            </form>
         </div>
-        <div class="notfound hide">
-            <img src="images/404.png" alt="">
-            <p>Sorry, we couldn't find the location!</p>
-        </div>
-        <div class="result">
-                <img src="images/clear.png" alt="">
-                <!-- <img src="images/cloud.png" alt="">
-                <img src="images/mist.png" alt="">
-                <img src="images/rain.png" alt="">
-                <img src="images/snow.png" alt=""> -->
-            <div class="restemp">
-                <p id="restemperature">25C</p>
-                <p>Sunny it seems</p>
+        <% if (locals.notfound) { %>
+            <div class="notfound">
+                <img src="images/404.png" alt="">
+                <p><%= notfound %> </p>
+                <p>Sorry, we couldn't find the location!</p>
             </div>
-            <div class="reshnw">
-                <div class="humidity">
-                    <div class="hum1">
-                        <i class="fa-solid fa-water fa-2x" style="color: #ffffff;"></i>
+        <% } %>
+        <% if (locals.temp) { %>
+            <div class="result">
+                <% if (main=="Clear") { %>
+                    <img src="images/clear.png" alt="">
+                <% } %>
+                <% if (main=="Clouds") { %>
+                    <img src="images/cloud.png" alt="">
+                <% } %>
+                <% if (main=="Rain") { %>
+                    <img src="images/rain.png" alt="">
+                <% } %>
+                <% if (main=="Snow") { %>
+                    <img src="images/snow.png" alt="">
+                <% } %>
+                <% if (main=="Haze") { %>
+                    <img src="images/mist.png" alt="">
+                <% } %>
+                <div class="restemp">
+                    <p id="restemperature"> <%= temp %> <span>°C</span></p>
+                    <p> <%= des %> </p>
+                </div>
+                <div class="reshnw">
+                    <div class="humidity">
+                        <div class="hum1">
+                            <i class="fa-solid fa-water fa-2x" style="color: #ffffff;"></i>
+                        </div>
+                        <div class="hum2">
+                            <p class="humper"> <%= humidity %>% </p>
+                            <p class="humtext">Humidity</p>
+                        </div>
                     </div>
-                    <div class="hum2">
-                        <p class="humper">27%</p>
-                        <p class="humtext">Humidity</p>
+                    <div class="humidity windspeed">
+                        <div class="hum1">
+                            <i class="fa-solid fa-wind fa-2x" style="color: #ffffff;"></i>
+                        </div>
+                        <div class="hum2">
+                            <p class="humper"> <%= wind %> KM/H </p>
+                            <p class="humtext">Wind Speed</p>
+                        </div>
                     </div>
                 </div>
-                <div class="humidity windspeed">
-                    <div class="hum1">
-                        <i class="fa-solid fa-wind fa-2x" style="color: #ffffff;"></i>
-                    </div>
-                    <div class="hum2">
-                        <p class="humper">83kmph</p>
-                        <p class="humtext">Wind Speed</p>
-                    </div>
-                </div>
             </div>
-        </div>
+        <% } %>
     </div>
 
     <script src="https://kit.fontawesome.com/7c8801c017.js" crossorigin="anonymous"></script>
