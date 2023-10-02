@@ -32,21 +32,7 @@
         <% } %>
         <% if (locals.temp) { %>
             <div class="result">
-                <% if (main=="Clear") { %>
-                    <img src="images/clear.png" alt="">
-                <% } %>
-                <% if (main=="Clouds") { %>
-                    <img src="images/cloud.png" alt="">
-                <% } %>
-                <% if (main=="Rain") { %>
-                    <img src="images/rain.png" alt="">
-                <% } %>
-                <% if (main=="Snow") { %>
-                    <img src="images/snow.png" alt="">
-                <% } %>
-                <% if (main=="Haze") { %>
-                    <img src="images/mist.png" alt="">
-                <% } %>
+                <img src="images/<%= main %>.png" alt="">
                 <div class="restemp">
                     <p id="restemperature"> <%= temp %> <span>°C</span></p>
                     <p> <%= des %> </p>
